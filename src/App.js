@@ -20,9 +20,9 @@ class App extends React.Component {
     }
 
     getNewsListData() {
-        debugger;
         const urlParams = new URLSearchParams(window.location.search);
         let pageNo = urlParams.get('page') || 1;
+        pageNo = parseInt(pageNo)
         axios.get(`https://hn.algolia.com/api/v1/search_by_date?page=${pageNo}&numericFilters=num_comments>10,points>10`)
             .then((response) => {
                 let result = response.data.hits;
@@ -84,6 +84,7 @@ class App extends React.Component {
         debugger;
         const { pageNo } = this.state;
         let page = pageStatus === "next" ? parseInt(pageNo) + 1 : parseInt(pageNo) - 1
+        page = page < 1 ? 1 : page;
         window.history.replaceState(null, null, `?page=${page}`);
         this.setState({
             pageNo: page,
