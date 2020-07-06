@@ -23,7 +23,7 @@ class App extends React.Component {
         debugger;
         const urlParams = new URLSearchParams(window.location.search);
         let pageNo = urlParams.get('page') || 1;
-        axios.get(`http://hn.algolia.com/api/v1/search_by_date?page=${pageNo}&numericFilters=num_comments>10,points>10`)
+        axios.get(`https://hn.algolia.com/api/v1/search_by_date?page=${pageNo}&numericFilters=num_comments>10,points>10`)
             .then((response) => {
                 let result = response.data.hits;
                 let hideNewsList = localStorage.getItem('hideNewsList');
