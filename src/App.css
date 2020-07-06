@@ -135,22 +135,6 @@ body {
   left: -3px;
 }
 
-/* @media (min-width: 1281px) {
-  .news-list__item .comment-number {
-    width: 80px;
-  }
-
-  .news-list__item .title-wrap {
-    padding: 0 30px;
-  }
-
-  .load-more-btn {
-    margin-left: 176px;
-    text-align: left;
-    width: auto;
-  }
-} */
-
 .preloader {
   align-items: center;
   display: flex;

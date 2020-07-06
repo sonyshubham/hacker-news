@@ -7,7 +7,7 @@ export default class NewsItem extends React.Component {
         newsData: {},
         upvoteCount: 0,
         domainName: '',
-        formatedDate: '',
+        formattedDate: '',
         };
     }
 
@@ -32,7 +32,7 @@ export default class NewsItem extends React.Component {
     }
 
     getDuration(pastDate) {
-        let formatedDate = '';
+        let formattedDate = '';
         const datePast = new Date(pastDate);
         const dateNow = new Date();
 
@@ -46,16 +46,16 @@ export default class NewsItem extends React.Component {
         minutes = minutes - (days * 24 * 60) - (hours * 60);
         seconds = seconds - (days * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60);
         if (years) {
-        formatedDate = `${years} year${years > 1 ? 's' : ''}`;
+        formattedDate = `${years} year${years > 1 ? 's' : ''}`;
         } else if (days) {
-        formatedDate = `${days} day${days > 1 ? 's' : ''}`;
+        formattedDate = `${days} day${days > 1 ? 's' : ''}`;
         } else if (hours) {
-        formatedDate = `${hours} hour${hours > 1 ? 's' : ''}`;
+        formattedDate = `${hours} hour${hours > 1 ? 's' : ''}`;
         } else if (minutes) {
-        formatedDate = `${minutes} min${minutes > 1 ? 's' : ''}`;
+        formattedDate = `${minutes} min${minutes > 1 ? 's' : ''}`;
         }
         this.setState({
-        formatedDate,
+        formattedDate,
         });
     }
 
@@ -71,7 +71,7 @@ export default class NewsItem extends React.Component {
 
     render() { 
         const {
-        upvoteCount, newsData, formatedDate, domainName,
+        upvoteCount, newsData, formattedDate, domainName,
         } = this.state;
         const { num_comments, title, author } = newsData;
         const { hideItem } = this.props;
@@ -109,7 +109,7 @@ export default class NewsItem extends React.Component {
                         </span>
                         <span className="grey-text">
                         {' '}
-                        {formatedDate}
+                        {formattedDate}
                         {' '}
                         ago
                         {' '}
